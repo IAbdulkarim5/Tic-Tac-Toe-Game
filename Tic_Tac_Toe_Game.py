@@ -1,9 +1,9 @@
-#my code m doing change on it to understand the git 
-
 import numpy as np
 
+## شاشة اللعب 
 screen_game = np.full([3, 3], " ")
 
+## وظيفة للاعبين
 def players():
     while True:
         player_take = input('Choose X or O to play: ').upper()
@@ -12,11 +12,13 @@ def players():
         else:
             print('Error, please choose X or O, xD can t read ?' )
 
+ ## طباعة شكل اللعبة (الماب)
 def print_board(screen_game):
     for row in screen_game:
         print(" | ".join(row))
         print("--" * 5)
 
+## معرفة الفائز بحسب طرق الفوز هل هي عمودية او صف او قطري
 def check_winner(screen_game):
     for row in screen_game:
         if row[0] == row[1] == row[2] != " ":
@@ -34,6 +36,7 @@ def check_winner(screen_game):
     
     return None
 
+## وظيفة اذا حصل تعادل بالقيم ومحد فاز
 def check_draw(screen_game):
     for row in screen_game:
         if " " in row:
@@ -42,6 +45,7 @@ def check_draw(screen_game):
 
 player = players()
 
+## اللعبة 
 while True:
     print_board(screen_game)
     print(f"Player {player}'s turn")
